@@ -40,7 +40,10 @@ class ImportController extends Controller
         $data = collect(File::json($file));
 
         $data = $data->map(function ($item) {
-            return array_change_key_case($item, CASE_LOWER);
+            foreach ($item as $key => $value) {
+                $item[strtolower($key)] = strtolower(trim($value));
+            }
+            return $item;
         });
 
         $data->each(function ($item) {
@@ -83,5 +86,7 @@ class ImportController extends Controller
                 ]);
             }
         });
+
+        return to_route('home');
     }
 }
