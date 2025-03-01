@@ -30,7 +30,7 @@ Route::get('/', function () {
         'groups' => Group::all(),
         'categories' => Category::all(),
     ]);
-});
+})->name('home');
 
 
 Route::resource('models', ModelController::class);
