@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Season;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class SeasonController extends Controller
 {
@@ -11,7 +13,9 @@ class SeasonController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('seasons/index', [
+            'seasons' => Season::all()
+        ]);
     }
 
     /**

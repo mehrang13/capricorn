@@ -2,17 +2,17 @@ import AppLayout from '@/layouts/app-layout';
 import { Head, Link, usePage } from '@inertiajs/react';
 
 export default function Page() {
-    const { sizes } = usePage().props;
+    const { genders } = usePage().props;
 
     return (
         <>
-            <Head title="Sizes" />
+            <Head title="Genders" />
             <AppLayout>
                 <div>
-                    <h1 className="text-2xl">Sizes</h1>
+                    <h1 className="text-2xl">Genders</h1>
                     <div className="divider"></div>
                     <div className="mb-4 flex items-center gap-2">
-                        <Link href={route('sizes.create')} className="btn btn-primary">
+                        <Link href={route('genders.create')} className="btn btn-primary">
                             Create
                         </Link>
                         <input type="text" className="input" placeholder="Search..." />
@@ -28,15 +28,15 @@ export default function Page() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {sizes.map((model: any) => (
+                                {genders.map((model: any) => (
                                     <tr key={model.id}>
                                         <td>{model.id}</td>
                                         <td>{model.name}</td>
                                         <td>
-                                            <Link href={route('sizes.edit', model)} className="btn btn-secondary btn-sm btn-circle">
+                                            <Link href={route('genders.edit', model)} className="btn btn-secondary btn-sm btn-circle">
                                                 Edit
                                             </Link>
-                                            <Link href={route('sizes.show', model)} className="btn btn-primary btn-sm btn-circle">
+                                            <Link href={route('genders.show', model)} className="btn btn-primary btn-sm btn-circle">
                                                 Show
                                             </Link>
                                         </td>

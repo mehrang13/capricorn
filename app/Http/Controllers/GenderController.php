@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gender;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class GenderController extends Controller
 {
@@ -11,7 +13,9 @@ class GenderController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('genders/index', [
+            'genders' => Gender::all()
+        ]);
     }
 
     /**

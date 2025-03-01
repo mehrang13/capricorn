@@ -2,17 +2,17 @@ import AppLayout from '@/layouts/app-layout';
 import { Head, Link, usePage } from '@inertiajs/react';
 
 export default function Page() {
-    const { sizes } = usePage().props;
+    const { groups } = usePage().props;
 
     return (
         <>
-            <Head title="Sizes" />
+            <Head title="Groups" />
             <AppLayout>
                 <div>
-                    <h1 className="text-2xl">Sizes</h1>
+                    <h1 className="text-2xl">Groups</h1>
                     <div className="divider"></div>
                     <div className="mb-4 flex items-center gap-2">
-                        <Link href={route('sizes.create')} className="btn btn-primary">
+                        <Link href={route('groups.create')} className="btn btn-primary">
                             Create
                         </Link>
                         <input type="text" className="input" placeholder="Search..." />
@@ -28,15 +28,15 @@ export default function Page() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {sizes.map((model: any) => (
+                                {groups.map((model: any) => (
                                     <tr key={model.id}>
                                         <td>{model.id}</td>
                                         <td>{model.name}</td>
                                         <td>
-                                            <Link href={route('sizes.edit', model)} className="btn btn-secondary btn-sm btn-circle">
+                                            <Link href={route('groups.edit', model)} className="btn btn-secondary btn-sm btn-circle">
                                                 Edit
                                             </Link>
-                                            <Link href={route('sizes.show', model)} className="btn btn-primary btn-sm btn-circle">
+                                            <Link href={route('groups.show', model)} className="btn btn-primary btn-sm btn-circle">
                                                 Show
                                             </Link>
                                         </td>

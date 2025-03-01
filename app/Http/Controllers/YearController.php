@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Year;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class YearController extends Controller
 {
@@ -11,7 +13,9 @@ class YearController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('years/index', [
+            'years' => Year::all()
+        ]);
     }
 
     /**

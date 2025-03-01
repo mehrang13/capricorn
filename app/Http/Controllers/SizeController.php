@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Size;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class SizeController extends Controller
 {
@@ -11,7 +13,9 @@ class SizeController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('sizes/index', [
+            'sizes' => Size::all()
+        ]);
     }
 
     /**

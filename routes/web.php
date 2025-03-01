@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ColorController;
 use App\Http\Controllers\GenderController;
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\ImportController;
 use App\Http\Controllers\ModelController;
 use App\Http\Controllers\SeasonController;
 use App\Http\Controllers\SizeController;
@@ -32,6 +33,8 @@ Route::get('/', function () {
     ]);
 })->name('home');
 
+Route::get('import', [ImportController::class, 'create'])->name('import.create');
+Route::post('import', [ImportController::class, 'store'])->name('import.store');
 
 Route::resource('models', ModelController::class);
 Route::resource('years', YearController::class);
