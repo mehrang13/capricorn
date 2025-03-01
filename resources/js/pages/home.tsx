@@ -5,7 +5,7 @@ export default function Welcome() {
         <>
             <Head title="Welcome" />
             <div>Home page</div>
-            <Link href="/models">Models</Link>
+            <Link href="/models" className='btn'>Models</Link>
         </>
     );
 }
