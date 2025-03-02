@@ -17,4 +17,9 @@ class FactoryModel extends Model
         'name',
         'description',
     ];
+
+    public function barcodes()
+    {
+        return $this->hasMany(Barcode::class);
+    }
 }

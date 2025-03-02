@@ -33,7 +33,7 @@ export default function Page() {
                                 {models.map((model: any) => (
                                     <tr key={model.id}>
                                         <td>{model.id}</td>
-                                        <td>{model.code}</td>
+                                        <td className='uppercase'>{model.code}</td>
                                         <td>{model.name}</td>
                                         <td>{model.description}</td>
                                         <td>

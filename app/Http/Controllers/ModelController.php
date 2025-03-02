@@ -45,6 +45,16 @@ class ModelController extends Controller
      */
     public function show(FactoryModel $model)
     {
+        $model->load(['barcodes' => [
+            'year',
+            'season',
+            'gender',
+            'group',
+            'color',
+            'size',
+            'category',
+        ]]);
+
         return Inertia::render('models/show', [
             'model' => $model
         ]);
