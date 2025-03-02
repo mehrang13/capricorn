@@ -12,6 +12,7 @@ class Size extends Model
      * @var list<string>
      */
     protected $fillable = [
+        'id',
         'name',
     ];
 }

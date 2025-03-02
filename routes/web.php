@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BarcodeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ColorController;
 use App\Http\Controllers\GenderController;
@@ -44,3 +45,5 @@ Route::resource('sizes', SizeController::class);
 Route::resource('genders', GenderController::class);
 Route::resource('groups', GroupController::class);
 Route::resource('categories', CategoryController::class);
+
+Route::resource('barcodes', BarcodeController::class);

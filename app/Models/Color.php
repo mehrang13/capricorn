@@ -12,6 +12,7 @@ class Color extends Model
      * @var list<string>
      */
     protected $fillable = [
+        'id',
         'name',
     ];
 }

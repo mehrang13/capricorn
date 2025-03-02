@@ -12,6 +12,7 @@ class FactoryModel extends Model
      * @var list<string>
      */
     protected $fillable = [
+        'id',
         'code',
         'name',
         'description',

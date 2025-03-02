@@ -32,6 +32,9 @@ export default function Welcome() {
                     <Link href="/seasons" className="btn">
                         Seasons
                     </Link>
+                    <Link href="/barcodes" className="btn btn-primary">
+                        Barcodes
+                    </Link>
                 </div>
                 <div>
                     <Link href={route('import.create')} className="btn btn-primary">
