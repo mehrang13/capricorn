@@ -5,16 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Barcode;
 use App\Models\Category;
 use App\Models\Color;
-use App\Models\FactoryModel;
 use App\Models\Gender;
 use App\Models\Group;
+use App\Models\Product;
 use App\Models\Season;
 use App\Models\Size;
 use App\Models\Year;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Validator;
 use Inertia\Inertia;
 
 class ImportController extends Controller
@@ -90,7 +89,7 @@ class ImportController extends Controller
             }
 
             if (Arr::has($item, 'code')) {
-                $model = FactoryModel::firstOrCreate([
+                $product = Product::firstOrCreate([
                     'code' => $item['code'],
 
                 ], [
@@ -107,15 +106,13 @@ class ImportController extends Controller
                     'season_id' => $seasonId,
                     'gender_id' => $genderId,
                     'group_id' => $groupId,
-                    'factory_model_id' => $model->id,
+                    'product_id' => $product->id,
                     'color_id' => $colorId,
                     'size_id' => $sizeId,
                     'category_id' => $category->id,
                 ]);
             }
         });
-
-
 
         return to_route('home');
     }

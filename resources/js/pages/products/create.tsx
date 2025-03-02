@@ -10,15 +10,15 @@ export default function Page() {
 
     function submit(e) {
         e.preventDefault();
-        post(route('models.store'));
+        post(route('products.store'));
     }
 
     return (
         <>
-            <Head title="Create model" />
+            <Head title="Create product" />
             <AppLayout>
                 <div>
-                    <h1 className="text-2xl">Create model</h1>
+                    <h1 className="text-2xl">Create product</h1>
                     <div className="divider"></div>
                     <form onSubmit={submit} className="space-y-2">
                         <fieldset className="fieldset">

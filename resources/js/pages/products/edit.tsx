@@ -4,8 +4,8 @@ export default function Page() {
 
     return (
         <>
-            <Head title="Edit model" />
-            <div>Edit model page</div>
+            <Head title="Edit product" />
+            <div>Edit product page</div>
         </>
     );
 }

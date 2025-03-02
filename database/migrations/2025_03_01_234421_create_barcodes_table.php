@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('season_id');
             $table->foreignId('gender_id');
             $table->foreignId('group_id');
-            $table->foreignId('factory_model_id');
+            $table->foreignId('product_id');
             $table->foreignId('color_id');
             $table->foreignId('size_id');
             $table->foreignId('category_id');

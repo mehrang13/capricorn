@@ -17,7 +17,7 @@ class Barcode extends Model
         'season_id',
         'gender_id',
         'group_id',
-        'factory_model_id',
+        'product_id',
         'color_id',
         'size_id',
         'category_id',
@@ -44,9 +44,9 @@ class Barcode extends Model
         return $this->belongsTo(Group::class);
     }
 
-    public function factoryModel()
+    public function product()
     {
-        return $this->belongsTo(FactoryModel::class);
+        return $this->belongsTo(Product::class);
     }
 
     public function color()

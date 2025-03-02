@@ -7,8 +7,8 @@ export default function Welcome() {
             <Head title="Welcome" />
             <AppLayout>
                 <div className='mb-4'>
-                    <Link href="/models" className="btn">
-                        Models
+                    <Link href={route('products.index')} className="btn">
+                        Products
                     </Link>
                     <Link href="/years" className="btn">
                         Years

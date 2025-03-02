@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class FactoryModel extends Model
+class Product extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -17,9 +17,4 @@ class FactoryModel extends Model
         'name',
         'description',
     ];
-
-    public function barcodes()
-    {
-        return $this->hasMany(Barcode::class);
-    }
 }
