@@ -1,8 +1,22 @@
+import Pagination from '@/components/pagination';
 import AppLayout from '@/layouts/app-layout';
-import { Head, Link, usePage } from '@inertiajs/react';
+import { Head, Link, router, usePage } from '@inertiajs/react';
 
 export default function Page() {
-    const { colors } = usePage().props;
+    const { colors, search } = usePage().props;
+
+    const handleSearch = (e) => {
+        router.get(
+            route('colors.index'),
+            {
+                search: e.target.value,
+            },
+            {
+                replace: true,
+                preserveState: true,
+            },
+        );
+    };
 
     return (
         <>
@@ -15,7 +29,10 @@ export default function Page() {
                         <Link href={route('colors.create')} className="btn btn-primary">
                             Create
                         </Link>
-                        <input type="text" className="input" placeholder="Search..." />
+                        <input type="search" className="input" placeholder="Search..." defaultValue={search} onChange={handleSearch} />
+                    </div>
+                    <div className="mb-4 flex justify-center">
+                        <Pagination links={colors.links} />
                     </div>
                     <div className="overflow-x-auto">
                         <table className="table-sm table-zebra table">
@@ -28,7 +45,7 @@ export default function Page() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {colors.map((model: any) => (
+                                {colors.data.map((model: any) => (
                                     <tr key={model.id}>
                                         <td>{model.id}</td>
                                         <td>{model.name}</td>

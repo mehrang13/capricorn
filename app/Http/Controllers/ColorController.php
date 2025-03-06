@@ -11,10 +11,14 @@ class ColorController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         return Inertia::render('colors/index', [
-            'colors' => Color::all()
+            'colors' => Color::when($request->search, function ($query, $search) {
+                $query->where('name', 'like', "%{$search}%")->orWhere('code', 'like', "%{$search}%");
+            })->paginate(10)
+                ->withQueryString(),
+                'search' => $request->search
         ]);
     }
 
