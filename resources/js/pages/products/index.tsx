@@ -1,9 +1,19 @@
 import Pagination from '@/components/pagination';
 import AppLayout from '@/layouts/app-layout';
-import { Head, Link, usePage } from '@inertiajs/react';
+import { Head, Link, router, useForm, usePage } from '@inertiajs/react';
 
 export default function Page() {
-    const { products } = usePage().props;
+    const { products , search} = usePage().props;
+
+    const handleSearch = (e) => {
+
+        router.get(route('products.index'),{
+            search : e.target.value
+        },{
+            preserveState : true
+        })
+
+    };
 
     return (
         <>
@@ -16,7 +26,7 @@ export default function Page() {
                         <Link href={route('products.create')} className="btn btn-primary">
                             Create
                         </Link>
-                        <input type="text" className="input" placeholder="Search..." />
+                        <input type="text" className="input" placeholder="Search..." value={search}  onChange={handleSearch} />
                     </div>
                     <div className="mb-4 flex justify-center">
                         <Pagination links={products.links} />

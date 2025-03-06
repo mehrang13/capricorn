@@ -6,6 +6,8 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
+use function Laravel\Prompts\search;
+
 class ProductController extends Controller
 {
     /**
@@ -18,6 +20,7 @@ class ProductController extends Controller
                 $query->where('name', 'like', "%{$search}%")->orWhere('code', 'like', "%{$search}%");
             })->paginate(10)
                 ->withQueryString(),
+                'search' => $request->search
         ]);
     }
 

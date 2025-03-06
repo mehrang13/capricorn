@@ -14,7 +14,7 @@ class BarcodeController extends Controller
     public function index()
     {
         return Inertia::render('barcodes/index', [
-            'barcodes' => Barcode::with(['year', 'season', 'gender', 'group', 'category', 'color', 'size', 'factoryModel'])->get(),
+            'barcodes' => Barcode::with(['year', 'season', 'gender', 'group', 'category', 'color', 'size', 'product'])->paginate(),
         ]);
     }
 
