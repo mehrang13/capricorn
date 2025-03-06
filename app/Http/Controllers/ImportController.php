@@ -36,10 +36,18 @@ class ImportController extends Controller
 
         $data = collect(File::json($file));
 
+        $data = $data->map(function ($item, $key) {
+            $newItem = [];
+            foreach ($item as $key => $value) {
+                $newItem[strtolower($key)] = strtolower($value);
+            }
+            return $newItem;
+        });
+
         $data->each(function ($item) {
 
             if (Arr::has($item, 'code')) {
-                Product::firstOrCreate(['code' => strtolower($item['code'])], ['name' => $item['name']]);
+                Product::firstOrCreate(['code' => $item['code']], ['name' => $item['name']]);
             }
 
             if (Arr::has($item, 'color')) {
@@ -48,18 +56,18 @@ class ImportController extends Controller
         });
 
         $data = $data->map(function ($item, $key) {
-            if (count($item) == 10) {
-                $item['barcode'] = Barcode::encode(
-                    7,
-                    $item['year'],
-                    $item['season'],
-                    $item['gender'],
-                    $item['group'],
-                    $item['code'],
-                    $item['color'],
-                    $item['size']
-                );
-            }
+
+            $item['barcode'] = Barcode::encode(
+                7,
+                $item['year'],
+                $item['season'],
+                $item['gender'],
+                $item['group'],
+                $item['code'],
+                $item['color'],
+                $item['size']
+            );
+
             return  $item;
         });
 

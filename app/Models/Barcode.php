@@ -66,16 +66,6 @@ class Barcode extends Model
 
     public static function encode($manufacturer, $year, $season, $gender, $group, $product, $color, $size): string
     {
-        $manufacturer = strtolower($manufacturer);
-        $year = strtolower($year);
-        $season = strtolower($season);
-        $gender = strtolower($gender);
-        $group = strtolower($group);
-        $product = strtolower($product);
-        $color = strtolower($color);
-
-        $size = strtolower($size);
-
         if ($size == 'no size') {
             $size = 'no size';
         }
